@@ -1,6 +1,6 @@
 
-README.md: bookmarklet.js Makefile
-	perl -pe 's/\[bookmarklet.*$$/[bookmarklet](\$${BOOKMARKLET})/' README.md | BOOKMARKLET='$(shell cat bookmarklet.js)' envsubst > README.md
+README.md: bookmarklet.js Makefile bookmarklet.template.html
+	BOOKMARKLET='$(shell cat bookmarklet.js)' envsubst < bookmarklet.template.html > bookmarklet.html
 
 bookmarklet.js: pointsCounter.js
 	node_modules/.bin/bookmarklet pointsCounter.js bookmarklet.js
