@@ -46,7 +46,7 @@
     }
 
     // in my private task managements system, tags "AA", "BB", up to "FF" are privileged
-    var top_tags = ["aa", "bb", "bb", "dd", "ee", "ff"]
+    var top_tags = ["aa", "bb", "cc", "dd", "ee", "ff"]
     spoints.sort((a, b) => {
       	var [atag, btag] = [a[0], b[0]];
         var [aval, bval] = [a[1], b[1]];
