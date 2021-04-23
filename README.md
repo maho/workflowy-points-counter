@@ -2,4 +2,4 @@
 
 Just install this [bookmarklet]
 
-[bookmarklet]: bookmarklet.html
+[bookmarklet]: https://maho.github.io/workflowy-points-counter/bookmarklet.html
