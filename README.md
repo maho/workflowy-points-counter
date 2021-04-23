@@ -1,1 +1,0 @@
-## Story points calculator utility
