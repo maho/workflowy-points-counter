@@ -39,10 +39,17 @@
     if (!Object.keys(points).length) {
       return pure_old_note;
     };
-    
-    var formatted_points = ""
+
+    var spoints = [];
     for (var k in points) {
-      var v = points[k];
+        spoints.push([k, points[k]]);
+    }
+
+    spoints.sort((a, b) => a[1] < b[1]);
+
+    
+    var formatted_points = "";
+    for (var [k,v] of spoints) {
       formatted_points += `    ${k}: ${v}\n`
     }
     
