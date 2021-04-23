@@ -45,11 +45,28 @@
         spoints.push([k, points[k]]);
     }
 
-    spoints.sort((a, b) => a[1] < b[1]);
+    // in my private task managements system, tags "AA", "BB", up to "FF" are privileged
+    var top_tags = ["aa", "bb", "bb", "dd", "ee", "ff"]
+    spoints.sort((a, b) => {
+      	var [atag, btag] = [a[0], b[0]];
+        var [aval, bval] = [a[1], b[1]];
+        if (top_tags.includes(atag) && top_tags.includes(btag))
+            return atag > btag;
+
+        if (top_tags.includes(atag) && !top_tags.includes(btag))
+            return false;
+
+        if (!top_tags.includes(atag) && top_tags.includes(btag))
+            return true;
+
+        return aval < bval;
+    });
 
     
     var formatted_points = "";
     for (var [k,v] of spoints) {
+      if (top_tags.includes(k))
+        k = k.toUpperCase();
       formatted_points += `    ${k}: ${v}\n`
     }
     
